@@ -1,0 +1,17 @@
+[Unit]
+Description=soteria-nou tinysrv service
+Requires=network.target
+After=network.target
+
+[Service]
+Type=forking
+RuntimeDirectory=tinysrv
+RuntimeDirectoryMode=0770
+ExecStartPre=/usr/local/bin/soteria.sh tinysrv
+EnvironmentFile=-/run/tinysrv/tinysrv.args
+ExecStart=/usr/bin/sudo -u tinysrv /usr/local/bin/tinysrv $ARGS
+User=soteria
+Group=soteria
+
+[Install]
+WantedBy=multi-user.target

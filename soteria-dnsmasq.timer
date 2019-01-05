@@ -1,0 +1,9 @@
+[Unit]
+Description=Update domains each hour
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=1h
+
+[Install]
+WantedBy=multi-user.target
